@@ -9,7 +9,7 @@ public class OpenDebuggerBrowser2 {
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://instagram.com");
-         //System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
          
         
     }

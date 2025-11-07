@@ -5,7 +5,98 @@
   <version>0.0.1-SNAPSHOT</version>
   
   <dependencies>
-	
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.12</version>
+    </dependency>
+    		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.4.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.4.1</version>
+		</dependency>
+    <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.11.0</version>
+</dependency>
+      <dependency>
+        <groupId>org.bytedeco</groupId>
+        <artifactId>opencv-platform</artifactId>
+        <version>4.11.0-1.5.12</version>
+    </dependency>
+        <dependency>
+        <groupId>org.apache.pdfbox</groupId>
+        <artifactId>pdfbox</artifactId>
+        <version>2.0.30</version>
+    </dependency>
+
+    <!-- PDFUtil for visual comparison -->
+        <dependency>
+        <groupId>org.apache.pdfbox</groupId>
+        <artifactId>pdfbox-tools</artifactId>
+        <version>3.0.2</version>
+    </dependency>
+    
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20230227</version>
+</dependency>
+
+  <dependency>
+    <groupId>io.socket</groupId>
+    <artifactId>socket.io-client</artifactId>
+    <version>2.0.1</version>
+  </dependency>
+  <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20210307</version>
+  </dependency>
+
+	<dependency>
+  <groupId>org.glassfish.tyrus.bundles</groupId>
+  <artifactId>tyrus-standalone-client</artifactId>
+  <version>2.1.1</version>
+</dependency>
+
+    <!-- ✅ Tess4J for OCR -->
+    <dependency>
+        <groupId>net.sourceforge.tess4j</groupId>
+        <artifactId>tess4j</artifactId>
+        <version>5.10.0</version>
+    </dependency>
+    <dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.5.6</version>
+</dependency>
+
+
+    <!-- ✅ Logging implementation (avoid SLF4J warnings) -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.13</version>
+    </dependency>
+<dependency>
+  <groupId>org.bytedeco</groupId>
+  <artifactId>opencv-platform</artifactId>
+  <version>4.11.0-1.5.12</version>
+</dependency>
+<dependency>
+  <groupId>org.openpnp</groupId>
+  <artifactId>opencv</artifactId>
+  <version>4.9.0-0</version>
+</dependency>
+
 	<dependency>
     <groupId>com.jcraft</groupId>
     <artifactId>jsch</artifactId>
@@ -36,6 +127,26 @@
     <artifactId>mysql-connector-j</artifactId>
     <version>9.4.0</version>
 </dependency>
+
+    <dependency>
+        <groupId>org.openpnp</groupId>
+        <artifactId>opencv</artifactId>
+        <version>4.9.0-0</version>
+    </dependency>
+
+    <!-- Tess4J OCR wrapper for Tesseract -->
+    <dependency>
+        <groupId>net.sourceforge.tess4j</groupId>
+        <artifactId>tess4j</artifactId>
+        <version>5.8.0</version>
+    </dependency>
+
+    <!-- Optional: removes SLF4J warnings -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.13</version>
+    </dependency>
 </dependencies>
 
 </project>

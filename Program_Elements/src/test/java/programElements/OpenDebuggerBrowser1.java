@@ -13,6 +13,6 @@ public class OpenDebuggerBrowser1 {
         options.addArguments("--remote-debugging-port=" + debugPort);
         options.addArguments("--user-data-dir=" + userProfile);
         WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.google.com");
+        driver.get("https://gmail.google.com");
 	}
 }
