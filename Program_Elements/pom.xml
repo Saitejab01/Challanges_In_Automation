@@ -5,11 +5,24 @@
   <version>0.0.1-SNAPSHOT</version>
   
   <dependencies>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>2.0.12</version>
-    </dependency>
+  
+  
+<dependency>
+    <groupId>com.sikulix</groupId>
+    <artifactId>sikulixapi</artifactId>
+    <version>2.0.5</version>
+</dependency>
+<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>31.1-jre</version>
+</dependency>
+    
+    <dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>6.3.2</version>
+</dependency>
     		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
@@ -55,11 +68,6 @@
     <artifactId>socket.io-client</artifactId>
     <version>2.0.1</version>
   </dependency>
-  <dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20210307</version>
-  </dependency>
 
 	<dependency>
   <groupId>org.glassfish.tyrus.bundles</groupId>
@@ -67,7 +75,6 @@
   <version>2.1.1</version>
 </dependency>
 
-    <!-- ✅ Tess4J for OCR -->
     <dependency>
         <groupId>net.sourceforge.tess4j</groupId>
         <artifactId>tess4j</artifactId>
@@ -78,14 +85,6 @@
     <artifactId>rest-assured</artifactId>
     <version>5.5.6</version>
 </dependency>
-
-
-    <!-- ✅ Logging implementation (avoid SLF4J warnings) -->
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>2.0.13</version>
-    </dependency>
 <dependency>
   <groupId>org.bytedeco</groupId>
   <artifactId>opencv-platform</artifactId>
@@ -111,11 +110,6 @@
   </dependency>
 
   <!-- (Optional) SLF4J binding to avoid warnings -->
-  <dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-simple</artifactId>
-    <version>2.0.9</version>
-  </dependency>
 
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
