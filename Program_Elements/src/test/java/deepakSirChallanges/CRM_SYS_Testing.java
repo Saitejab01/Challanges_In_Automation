@@ -6,29 +6,20 @@ import static io.restassured.RestAssured.given;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.net.URL;
 import java.time.Duration;
 import java.util.Random;
-import java.util.Set;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.sikuli.script.Pattern;
-import org.sikuli.script.Screen;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -36,6 +27,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class CRM_SYS_Testing {
+	String invoiceID=null;
 	@Test
 	public void crmSysTesting() throws Throwable{
 			File f = new File("C:\\Users\\User\\git\\AutomationChallanges\\Program_Elements\\src\\test\\resources\\MasterExcel.xlsx");
@@ -48,7 +40,7 @@ public class CRM_SYS_Testing {
 			Row row=sheet.createRow(1);
 			Random rand  = new Random();
 			int randNum = rand.nextInt(1000,9999);
-			String venderName ="Lokesh gangineni"+randNum;
+			String venderName ="LokeshGangineni"+randNum;
 			String productName =venderName+"Product";
 			
 			//set in excel
@@ -56,9 +48,7 @@ public class CRM_SYS_Testing {
 			row.createCell(1).setCellValue(productName);
 			
 			WebDriverManager.edgedriver().setup();
-//			WebDriver driver = new EdgeDriver();
-			EdgeOptions option = new EdgeOptions();
-			RemoteWebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.170:4444"),option);
+			WebDriver driver = new EdgeDriver();
 			driver.get("http://49.249.28.218:8097/");
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -338,100 +328,100 @@ public class CRM_SYS_Testing {
 			row.createCell(10).setCellValue(salesID);
 			
 			String invoiceJsonBody="{\r\n"
-					+ "  \"billingAddress\": {\r\n"
-					+ "    \"addressId\": \"ADD04770\"\r\n"
-					+ "  },\r\n"
-					+ "  \"contactId\": \""+contactID+"\",\r\n"
-					+ "  \"invoice\": {\r\n"
 					+ "    \"billingAddress\": {\r\n"
-					+ "      \"addressId\": \"ADD04770\"\r\n"
-					+ "    },\r\n"
-					+ "    \"contact\": {\r\n"
-					+ "      \"campaign\": {\r\n"
-					+ "        \"campaignId\": \""+campaignId+"\"\r\n"
-					+ "      },\r\n"
-					+ "      \"contactId\": \""+contactID+"\"\r\n"
-					+ "    },\r\n"
-					+ "    \"invoiceId\": \"string\",\r\n"
-					+ "    \"products\": [\r\n"
-					+ "      {\r\n"
-					+ "        \"productId\": \""+productID+"\"\r\n"
-					+ "      }\r\n"
-					+ "    ],\r\n"
-					+ "    \"salesOrder\": {\r\n"
-					+ "      \"billingAddress\": {\r\n"
 					+ "        \"addressId\": \"ADD04770\"\r\n"
-					+ "      },\r\n"
-					+ "      \"contact\": {\r\n"
-					+ "        \"campaign\": {\r\n"
-					+ "          \"campaignId\": \""+campaignId+"\"\r\n"
-					+ "        },\r\n"
-					+ "        \"contactId\": \""+contactID+"\"\r\n"
-					+ "      },\r\n"
-					+ "      \"opportunity\": {\r\n"
-					+ "        \"lead\": {\r\n"
-					+ "          \"campaign\": {\r\n"
-					+ "            \"campaignId\": \""+campaignId+"\"\r\n"
-					+ "          },\r\n"
-					+ "          \"leadId\": \""+leadID+"\"\r\n"
-					+ "        },\r\n"
-					+ "        \"opportunityId\": \""+opportunityID+"\"\r\n"
-					+ "      },\r\n"
-					+ "      \"orderId\": \""+orderID+"\",\r\n"
-					+ "      \"products\": [\r\n"
-					+ "        {\r\n"
-					+ "          \"productId\": \""+productID+"\"\r\n"
-					+ "        }\r\n"
-					+ "      ],\r\n"
-					+ "      \"quote\": {\r\n"
+					+ "    },\r\n"
+					+ "    \"contactId\": \""+contactID+"\",\r\n"
+					+ "    \"invoice\": {\r\n"
 					+ "        \"billingAddress\": {\r\n"
-					+ "          \"addressId\": \"ADD04770\"\r\n"
+					+ "            \"addressId\": \"ADD04770\"\r\n"
 					+ "        },\r\n"
 					+ "        \"contact\": {\r\n"
-					+ "          \"campaign\": {\r\n"
-					+ "            \"campaignId\": \""+campaignId+"\"\r\n"
-					+ "          },\r\n"
-					+ "          \"contactId\": \""+contactID+"\"\r\n"
-					+ "        },\r\n"
-					+ "        \"opportunity\": {\r\n"
-					+ "          \"lead\": {\r\n"
 					+ "            \"campaign\": {\r\n"
-					+ "              \"campaignId\": \""+campaignId+"\"\r\n"
+					+ "                \"campaignId\": \""+campaignId+"\"\r\n"
 					+ "            },\r\n"
-					+ "            \"leadId\": \""+leadID+"\"\r\n"
-					+ "          },\r\n"
-					+ "          \"opportunityId\": \""+opportunityID+"\"\r\n"
+					+ "            \"contactId\": \""+contactID+"\"\r\n"
 					+ "        },\r\n"
+					+ "        \"invoiceId\": \"string\",\r\n"
 					+ "        \"products\": [\r\n"
-					+ "          {\r\n"
-					+ "            \"productId\": \""+productID+"\"\r\n"
+					+ "            {\r\n"
+					+ "                \"productId\": \""+productID+"\"\r\n"
+					+ "      }\r\n"
+					+ "    ],\r\n"
+					+ "        \"salesOrder\": {\r\n"
+					+ "            \"billingAddress\": {\r\n"
+					+ "                \"addressId\": \"ADD04770\"\r\n"
+					+ "            },\r\n"
+					+ "            \"contact\": {\r\n"
+					+ "                \"campaign\": {\r\n"
+					+ "                    \"campaignId\": \""+campaignId+"\"\r\n"
+					+ "                },\r\n"
+					+ "                \"contactId\": \""+contactID+"\"\r\n"
+					+ "            },\r\n"
+					+ "            \"opportunity\": {\r\n"
+					+ "                \"lead\": {\r\n"
+					+ "                    \"campaign\": {\r\n"
+					+ "                        \"campaignId\": \""+campaignId+"\"\r\n"
+					+ "                    },\r\n"
+					+ "                    \"leadId\": \""+leadID+"\"\r\n"
+					+ "                },\r\n"
+					+ "                \"opportunityId\": \""+opportunityID+"\"\r\n"
+					+ "            },\r\n"
+					+ "            \"orderId\": \""+salesID+"\",\r\n"
+					+ "            \"products\": [\r\n"
+					+ "                {\r\n"
+					+ "                    \"productId\": \""+productID+"\"\r\n"
+					+ "        }\r\n"
+					+ "      ],\r\n"
+					+ "            \"quote\": {\r\n"
+					+ "                \"billingAddress\": {\r\n"
+					+ "                    \"addressId\": \"ADD04770\"\r\n"
+					+ "                },\r\n"
+					+ "                \"contact\": {\r\n"
+					+ "                    \"campaign\": {\r\n"
+					+ "                        \"campaignId\": \""+campaignId+"\"\r\n"
+					+ "                    },\r\n"
+					+ "                    \"contactId\": \""+contactID+"\"\r\n"
+					+ "                },\r\n"
+					+ "                \"opportunity\": {\r\n"
+					+ "                    \"lead\": {\r\n"
+					+ "                        \"campaign\": {\r\n"
+					+ "                            \"campaignId\": \""+campaignId+"\"\r\n"
+					+ "                        },\r\n"
+					+ "                        \"leadId\": \""+leadID+"\"\r\n"
+					+ "                    },\r\n"
+					+ "                    \"opportunityId\": \""+opportunityID+"\"\r\n"
+					+ "                },\r\n"
+					+ "                \"products\": [\r\n"
+					+ "                    {\r\n"
+					+ "                        \"productId\": \""+productID+"\"\r\n"
 					+ "          }\r\n"
 					+ "        ],\r\n"
-					+ "        \"quoteId\": \""+quoteID+"\",\r\n"
+					+ "                \"quoteId\": \""+quoteID+"\",\r\n"
+					+ "                \"shippingAddress\": {\r\n"
+					+ "                    \"addressId\": \"ADD04770\"\r\n"
+					+ "                }\r\n"
+					+ "            },\r\n"
+					+ "            \"shippingAddress\": {\r\n"
+					+ "                \"addressId\": \"ADD04770\"\r\n"
+					+ "            }\r\n"
+					+ "        },\r\n"
 					+ "        \"shippingAddress\": {\r\n"
-					+ "          \"addressId\": \"ADD04770\"\r\n"
+					+ "            \"addressId\": \"ADD04770\"\r\n"
 					+ "        }\r\n"
-					+ "      },\r\n"
-					+ "      \"shippingAddress\": {\r\n"
-					+ "        \"addressId\": \"ADD04770\"\r\n"
-					+ "      }\r\n"
 					+ "    },\r\n"
-					+ "    \"shippingAddress\": {\r\n"
-					+ "      \"addressId\": \"ADD04770\"\r\n"
-					+ "    }\r\n"
-					+ "  },\r\n"
-					+ "  \"orderId\": \"SO00597\",\r\n"
-					+ "  \"productQuantities\": {\r\n"
-					+ "    \""+productID+"\": 1\r\n"
-					+ "  },\r\n"
-					+ "  \"products\": [\r\n"
-					+ "    {\r\n"
-					+ "      \"productId\": \""+productID+"\"\r\n"
+					+ "    \"orderId\": \""+salesID+"\",\r\n"
+					+ "    \"productQuantities\": {\r\n"
+					+ "        \""+productID+"\": 1\r\n"
+					+ "    },\r\n"
+					+ "    \"products\": [\r\n"
+					+ "        {\r\n"
+					+ "            \"productId\": \""+productID+"\"\r\n"
 					+ "    }\r\n"
 					+ "  ],\r\n"
-					+ "  \"shippingAddress\": {\r\n"
-					+ "    \"addressId\": \"ADD04770\"\r\n"
-					+ "  }\r\n"
+					+ "    \"shippingAddress\": {\r\n"
+					+ "        \"addressId\": \"ADD04770\"\r\n"
+					+ "    }\r\n"
 					+ "}";
 			Response invoiceResp = given()
 			.contentType(ContentType.JSON)
@@ -439,7 +429,7 @@ public class CRM_SYS_Testing {
 			.when()
 			.post("/invoice");
 			invoiceResp.then().log().all();
-			String invoiceID=invoiceResp.jsonPath().get("invoiceId");
+			invoiceID=invoiceResp.jsonPath().get("invoiceId");
 			row.createCell(11).setCellValue(invoiceID);
 			
 			
@@ -451,11 +441,15 @@ public class CRM_SYS_Testing {
 			driver.findElement(By.xpath("//input[@placeholder=\"Search by Invoice Id\"]")).sendKeys(invoiceID);
 			
 			wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//td[contains(.,'"+invoiceID+"')]"))));
+			
+//	        String filePath = "C:\\Users\\User\\Desktop\\BRM_Jar.jar";
+//	        Runtime.getRuntime().exec("java -jar \"" + filePath + "\" 4040 " + invoiceID);
 	        FileOutputStream fout = new FileOutputStream(f);
 	        wb.write(fout);
 	        fout.close();
 	        wb.close();
 	        driver.quit();
 		}
+	
 		
 	}
